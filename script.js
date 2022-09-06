@@ -128,7 +128,7 @@ const fetchRequestPOST = () => {
       }),
     };
   
-    fetch("jsonplaceholder.typicode.com/posts", options)
+    fetch("'https://jsonplaceholder.typicode.com/posts/', options);
       .then((response) => {
         console.log(response.status);
         return response.json();
@@ -137,5 +137,31 @@ const fetchRequestPOST = () => {
       .catch((err) => console.error(err));
   };
   fetchRequestPOST();
+
+  // Fetch API + async/await
+
+  onst asyncFetchRequestPOST = async () => {
+    try {
+      const options = {
+        method: "POST",
+        body: JSON.stringify({
+          name: "Andrew",
+          age: 30,
+        }),
+      };
+  
+      const response = await fetch(
+        "jsonplaceholder.typicode.com/posts",
+        options
+      );
+      console.log(response);
+      console.log(response.status);
+      const data = await response.json();
+      console.log(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  asyncFetchRequestPOST();
 
 
