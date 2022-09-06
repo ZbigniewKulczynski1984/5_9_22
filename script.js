@@ -89,6 +89,7 @@ const asyncFetchRequestGET = async () => {
 asyncFetchRequestGET();
 
 // Metoda POST służy do wrzucania danych odwrotność GET
+//----------------------------------------------------------
 
 const XMLRequestPOST = () => {
 
@@ -101,13 +102,18 @@ const XMLRequestPOST = () => {
     request.open('POST', 'https://jsonplaceholder.typicode.com/todos/')
     request.send()
     request.onload = function () { //funkcjas zwykła można uzyć strzałkowej
+        console.log(request.status);
         console.log(request.responseText);
+       
 
     }
 
 };
 
 XMLRequestPOST();
+
+// JSON.parse: json => obj js
+// JSON.stringify: obj js => json
 
 
 
