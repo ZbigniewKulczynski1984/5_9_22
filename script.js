@@ -104,10 +104,11 @@ const XMLRequestPOST = () => {
     request.onload = function () { //funkcjas zwykła można uzyć strzałkowej
         console.log(request.status);
         console.log(request.responseText);
-       
-
-    }
-
+     
+    };
+    request.onerror = function() {
+        console.error('Something went wrong!!!!');
+    };
 };
 
 XMLRequestPOST();
@@ -115,5 +116,26 @@ XMLRequestPOST();
 // JSON.parse: json => obj js
 // JSON.stringify: obj js => json
 
+
+// Fetch API + then chain
+
+const fetchRequestPOST = () => {
+    const options = {
+      method: "POST",
+      body: JSON.stringify({
+        name: "Andrew",
+        age: 30,
+      }),
+    };
+  
+    fetch("jsonplaceholder.typicode.com/posts", options)
+      .then((response) => {
+        console.log(response.status);
+        return response.json();
+      })
+      .then((data) => console.log(data))
+      .catch((err) => console.error(err));
+  };
+  fetchRequestPOST();
 
 
