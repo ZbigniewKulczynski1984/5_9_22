@@ -30,46 +30,46 @@
 //a) XMLHttpRequest
 // https://jsonplaceholder.typicode.com/todos/
 
-const XMLRequestGET = () => {
-	//reprezentacje requestów
-	//1. Stworzenie obiektu requesta
-	const request = new XMLHttpRequest();
-	//2. konfiguracja requesta przy pomocy open
-	//dwa wymagane argumenty
-	//- metoda HTTP(np GET)
-	//- url(endpoint jakiegoś API z którego chcemy pobrać dane)
-	request.open('GET', 'https://jsonplaceholder.typicode.com/todos/', true);
+// const XMLRequestGET = () => {
+// 	//reprezentacje requestów
+// 	//1. Stworzenie obiektu requesta
+// 	const request = new XMLHttpRequest();
+// 	//2. konfiguracja requesta przy pomocy open
+// 	//dwa wymagane argumenty
+// 	//- metoda HTTP(np GET)
+// 	//- url(endpoint jakiegoś API z którego chcemy pobrać dane)
+// 	request.open('GET', 'https://jsonplaceholder.typicode.com/todos/', true);
 
-	//3. wysłanie requesta(metodas send())
-	request.send();
-	//4. oczekiwanie i reakcja na response z serwera
-	request.onload = () => {
-		//reprezentacja requesta
-		// funkcja odpali się wtedy gry otrzymamy response z serwera
-		// console.log(request);
-		// console.log(request.responseTEXT);
-		const data = JSON.parse(request.responseText);
-		console.log(data);
-	};
-};
-XMLRequestGET();
+// 	//3. wysłanie requesta(metodas send())
+// 	request.send();
+// 	//4. oczekiwanie i reakcja na response z serwera
+// 	request.onload = () => {
+// 		//reprezentacja requesta
+// 		// funkcja odpali się wtedy gry otrzymamy response z serwera
+// 		// console.log(request);
+// 		// console.log(request.responseTEXT);
+// 		const data = JSON.parse(request.responseText);
+// 		console.log(data);
+// 	};
+// };
+// XMLRequestGET();
 
 
 //b) Fetch API + then chain
 
-const fetchRequestGET = () =>{
-    //1. wywołaniefunkcji fetch, domyslnie działa na metodzie GET
-    fetch('https://jsonplaceholder.typicode.com/todos/')
-    .then((response)=>{//zwraca promisa
-        console.log(response);
-        //prettier-ignore
-        return response.json() //zwracam json,żeby osłużyć promisa
-    })
-    .then((data) => { //w większości przypadków będą 2 razy then
-        console.log(data);
-    })
-}; //promise pudełko na dane którcyh jeszcze nie mamy, ale dostaniemy, rezerwujemy miejsce na te dane
-fetchRequestGET();
+// const fetchRequestGET = () =>{
+//     //1. wywołaniefunkcji fetch, domyslnie działa na metodzie GET
+//     fetch('https://jsonplaceholder.typicode.com/todos/')
+//     .then((response)=>{//zwraca promisa
+//         console.log(response);
+//         //prettier-ignore
+//         return response.json() //zwracam json,żeby osłużyć promisa
+//     })
+//     .then((data) => { //w większości przypadków będą 2 razy then
+//         console.log(data);
+//     })
+// }; //promise pudełko na dane którcyh jeszcze nie mamy, ale dostaniemy, rezerwujemy miejsce na te dane
+// fetchRequestGET();
 
 //c) Fetch API + async/await
 
@@ -80,28 +80,115 @@ fetchRequestGET();
 
 // const fn = async function () {};
 
-const asyncFetchRequestGET = async () => {
-    const response = await fetch('https://jsonplaceholder.typicode.com/todos/');
-    const data = await response.json();
-    console.log(data);
-};
+// const asyncFetchRequestGET = async () => {
+//     const response = await fetch('https://jsonplaceholder.typicode.com/todos/');
+//     const data = await response.json();
+//     console.log(data);
+// };
 
-asyncFetchRequestGET();
+// asyncFetchRequestGET();
 
 // Metoda POST służy do wrzucania danych odwrotność GET
 //----------------------------------------------------------
 
-const XMLRequestPOST = () => {
+// const XMLRequestPOST = () => {
+
+//     const body = JSON.stringify({
+//         name: 'Andrew',
+//         age: 30,
+//     })
+
+//     const request = new XMLHttpRequest();
+//     request.open('POST', 'https://jsonplaceholder.typicode.com/todos/')
+//     request.send()
+//     request.onload = function () { //funkcjas zwykła można uzyć strzałkowej
+//         console.log(request.status);
+//         console.log(request.responseText);
+     
+//     };
+//     request.onerror = function() {
+//         console.error('Something went wrong!!!!');
+//     };
+// };
+
+// XMLRequestPOST();
+
+// JSON.parse: json => obj js
+// JSON.stringify: obj js => json
+
+
+// Fetch API + then chain
+
+// const fetchRequestPOST = () => {
+//     const options = {
+//       method: "POST",
+//       body: JSON.stringify({
+//         name: "Andrew",
+//         age: 30,
+//       }),
+//     };
+  
+//     fetch(
+//         "http://jsonplaceholder.typicode.com/posts",
+//         options
+//       )
+//       .then((response) => {
+//         console.log(response.status);
+//         return response.json();
+//       })
+//       .then((data) => console.log(data))
+//       .catch((err) => console.error(err));
+//   };
+//   fetchRequestPOST();
+
+  // Fetch API + async/await
+
+//   const asyncFetchRequestPOST = async () => {
+//     try {
+//       const options = {
+//         method: "POST",
+//         body: JSON.stringify({
+//           name: "Andrew",
+//           age: 30,
+//         }),
+//       };
+  
+//       const response = await fetch(
+//         "http://jsonplaceholder.typicode.com/posts",
+//         options
+//       );
+//       console.log(response);
+//       console.log(response.status);
+//       const data = await response.json();
+//       console.log(data);
+//     } catch (err) {
+//       console.error(err);
+//     }
+//   };
+//   asyncFetchRequestPOST();
+
+  //metoda PUT - słuzy do aktualizowania w bazie danych(usuwa cały obiekt)
+
+  //POST tworzy nowe miejsca na dane
+  //PUT weżmie sobie komórke danych, usuniestare dane i wrzuci nowe
+
+
+// a) XMlHttpRequest
+// b) Fetch API + then chain
+// c) Fetch API + async/await
+
+//-------------------------------------------------
+const XMLRequestPUT = () => {
 
     const body = JSON.stringify({
-        name: 'Andrew',
-        age: 30,
+        name: 'Zbyszek',
+        age: 38,
     })
 
     const request = new XMLHttpRequest();
-    request.open('POST', 'https://jsonplaceholder.typicode.com/todos/')
+    request.open('PUT', 'https://jsonplaceholder.typicode.com/todos/13')
     request.send()
-    request.onload = function () { //funkcjas zwykła można uzyć strzałkowej
+    request.onload = function () { 
         console.log(request.status);
         console.log(request.responseText);
      
@@ -111,25 +198,21 @@ const XMLRequestPOST = () => {
     };
 };
 
-XMLRequestPOST();
+XMLRequestPUT();
 
-// JSON.parse: json => obj js
-// JSON.stringify: obj js => json
+//-----------------------------------------------------------
 
-
-// Fetch API + then chain
-
-const fetchRequestPOST = () => {
+const fetchRequestPUT = () => {
     const options = {
-      method: "POST",
+      method: "PUT",
       body: JSON.stringify({
-        name: "Andrew",
-        age: 30,
+        name: "Zbyszke",
+        age: 20,
       }),
     };
   
     fetch(
-        "http://jsonplaceholder.typicode.com/posts",
+        "http://jsonplaceholder.typicode.com/posts/77",
         options
       )
       .then((response) => {
@@ -139,22 +222,22 @@ const fetchRequestPOST = () => {
       .then((data) => console.log(data))
       .catch((err) => console.error(err));
   };
-  fetchRequestPOST();
+  fetchRequestPUT();
 
-  // Fetch API + async/await
-
-  const asyncFetchRequestPOST = async () => {
+  const asyncFetchRequestPUT = async () => {
     try {
       const options = {
-        method: "POST",
+        method: "PUTT",
         body: JSON.stringify({
-          name: "Andrew",
-          age: 30,
+          name: "Johny",
+          age: 13,
         }),
       };
   
+//------------------------------------------------------------------
+
       const response = await fetch(
-        "http://jsonplaceholder.typicode.com/posts",
+        "http://jsonplaceholder.typicode.com/posts/99",
         options
       );
       console.log(response);
@@ -165,6 +248,9 @@ const fetchRequestPOST = () => {
       console.error(err);
     }
   };
-  asyncFetchRequestPOST();
+  asyncFetchRequestPUT();
+
+
+
 
 
