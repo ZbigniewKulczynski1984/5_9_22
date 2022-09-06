@@ -46,8 +46,8 @@ const XMLRequestGET = () => {
 	request.onload = () => {
 		//reprezentacja requesta
 		// funkcja odpali się wtedy gry otrzymamy response z serwera
-		console.log(request);
-		console.log(request.responseTEXT);
+		// console.log(request);
+		// console.log(request.responseTEXT);
 		const data = JSON.parse(request.responseText);
 		console.log(data);
 	};
@@ -56,4 +56,11 @@ XMLRequestGET();
 
 
 //b) Fetch API + then chain
+
+const fetchRequestGET = () =>{
+    //1. wywołaniefunkcji fetch, domyslnie działa na metodzie GET
+    fetch('https://jsonplaceholder.typicode.com/todos/') //wzraca promisa
+}; //promise pudełko na dane którcyh jeszcze nie mamy, ale dostaniemy, rezerwujemy miejsce na te dane
+fetchRequestGET();
+
 //c) Fetch API + async/await
