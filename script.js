@@ -59,8 +59,36 @@ XMLRequestGET();
 
 const fetchRequestGET = () =>{
     //1. wywołaniefunkcji fetch, domyslnie działa na metodzie GET
-    fetch('https://jsonplaceholder.typicode.com/todos/') //wzraca promisa
+    fetch('https://jsonplaceholder.typicode.com/todos/')
+    .then((response)=>{//zwraca promisa
+        console.log(response);
+        //prettier-ignore
+        return response.json() //zwracam json,żeby osłużyć promisa
+    })
+    .then((data) => { //w większości przypadków będą 2 razy then
+        console.log(data);
+    })
 }; //promise pudełko na dane którcyh jeszcze nie mamy, ale dostaniemy, rezerwujemy miejsce na te dane
 fetchRequestGET();
 
 //c) Fetch API + async/await
+
+//najprostrze przypomina kod synchroniczny
+//zadaniem async/await jest sprawjenie że kod asynchroniczny przypomina kod synchr.
+
+// async function fn1() {}
+
+// const fn = async function () {};
+
+const asyncFetchRequestGET = async () => {
+    const response = await fetch('https://jsonplaceholder.typicode.com/todos/');
+    const data = await response.json();
+    console.log(data);
+};
+
+asyncFetchRequestGET();
+
+
+
+
+
