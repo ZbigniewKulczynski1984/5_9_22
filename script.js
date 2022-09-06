@@ -26,3 +26,23 @@ const fetchJSON = () => {
   };
   // JSON.stringify()
   // wysyłanie
+
+  //metody HTTP
+
+  //1. Metoda GET
+  //pobieranie danych z serwera
+  //a) XMLHttpRequest
+  // https://jsonplaceholder.typicode.com/todos/
+
+    const XMLHttpRequest = () => { //reprezentacje requestów
+        //1. Stworzenie obiektu reQuesta
+        const request = new XMLHttpRequest()
+        //2. konfiguracja requesta przy pomocy open
+        //dwa wymagane argumenty
+        //metoda HTTP(np GET)
+        //url(endpoint jakiegoś API z którego chcemy pobrać dane)
+        request.open('GET', 'https://jsonplaceholder.typicode.com/todos/', true);
+    }
+
+  //b) Fetch API + then chain
+  //c) Fetch API + async/await
