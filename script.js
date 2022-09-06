@@ -128,7 +128,10 @@ const fetchRequestPOST = () => {
       }),
     };
   
-    fetch("'https://jsonplaceholder.typicode.com/posts/', options);
+    fetch(
+        "jsonplaceholder.typicode.com/posts",
+        options
+      )
       .then((response) => {
         console.log(response.status);
         return response.json();
@@ -140,7 +143,7 @@ const fetchRequestPOST = () => {
 
   // Fetch API + async/await
 
-  onst asyncFetchRequestPOST = async () => {
+  const asyncFetchRequestPOST = async () => {
     try {
       const options = {
         method: "POST",
