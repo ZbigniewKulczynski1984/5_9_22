@@ -2,7 +2,7 @@
 
 ##Build with
 - HTML
--JS
+- JS
 
 ##Author
 Zbigniew Kulczyński
