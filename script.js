@@ -88,7 +88,26 @@ const asyncFetchRequestGET = async () => {
 
 asyncFetchRequestGET();
 
+// Metoda POST służy do wrzucania danych odwrotność GET
 
+const XMLRequestPOST = () => {
+
+    const body = JSON.stringify({
+        name: 'Andrew',
+        age: 30,
+    })
+
+    const request = new XMLHttpRequest();
+    request.open('POST', 'https://jsonplaceholder.typicode.com/todos/')
+    request.send()
+    request.onload = function () { //funkcjas zwykła można uzyć strzałkowej
+        console.log(request.responseText);
+
+    }
+
+};
+
+XMLRequestPOST();
 
 
 
