@@ -200,6 +200,9 @@ const XMLRequestPUT = () => {
 
 XMLRequestPUT();
 
+
+
+
 //-----------------------------------------------------------
 
 const fetchRequestPUT = () => {
@@ -224,17 +227,21 @@ const fetchRequestPUT = () => {
   };
   fetchRequestPUT();
 
+
+//------------------------------------------------------------------
+
+
+
   const asyncFetchRequestPUT = async () => {
     try {
       const options = {
-        method: "PUTT",
+        method: "PUT",
         body: JSON.stringify({
           name: "Johny",
           age: 13,
         }),
       };
   
-//------------------------------------------------------------------
 
       const response = await fetch(
         "http://jsonplaceholder.typicode.com/posts/99",
