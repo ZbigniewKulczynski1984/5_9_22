@@ -129,7 +129,7 @@ const fetchRequestPOST = () => {
     };
   
     fetch(
-        "jsonplaceholder.typicode.com/posts",
+        "http://jsonplaceholder.typicode.com/posts",
         options
       )
       .then((response) => {
@@ -154,7 +154,7 @@ const fetchRequestPOST = () => {
       };
   
       const response = await fetch(
-        "jsonplaceholder.typicode.com/posts",
+        "http://jsonplaceholder.typicode.com/posts",
         options
       );
       console.log(response);
