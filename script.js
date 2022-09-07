@@ -388,13 +388,13 @@ const asyncFetchRequestDELETE = async () => {
 
   const options = {
     method: 'DELETE',
-    body: JSON.stringify({
+    // body: JSON.stringify({
 
-    }),
+    // }),
   };
     try {
       const response = await fetch(
-      			'http://jsonplaceholder.typicode.com/posts',
+      			'http://jsonplaceholder.typicode.com/posts/1',
       			options
        		);
 
