@@ -261,79 +261,155 @@
 
 // person.age = 39
 
-const XMLRequestPATCH = () => {
-	const body = JSON.stringify({
-		name: 'Zbyszek',
-		age: 38,
-		car: 'Skoda',
-	});
+// const XMLRequestPATCH = () => {
+// 	const body = JSON.stringify({
+// 		name: 'Zbyszek',
+// 		age: 38,
+// 		car: 'Skoda',
+// 	});
 
-	const request = new XMLHttpRequest();
-	request.open('PATCH', 'https://jsonplaceholder.typicode.com/todos/13');
-	request.send(body);
-	request.onload = function () {
-		console.log(request.status);
-		console.log(request.responseText);
-	};
+// 	const request = new XMLHttpRequest();
+// 	request.open('PATCH', 'https://jsonplaceholder.typicode.com/todos/13');
+// 	request.send(body);
+// 	request.onload = function () {
+// 		console.log(request.status);
+// 		console.log(request.responseText);
+// 	};
 
-	request.onerror = function () {
-		console.error('Something went wrong!!!!');
-	};
-};
+// 	request.onerror = function () {
+// 		console.error('Something went wrong!!!!');
+// 	};
+// };
 
-XMLRequestPATCH();
+// XMLRequestPATCH();
 
-//----------------------------------------------------
+// //----------------------------------------------------
 
-const fetchRequestPATCH = () => {
+// const fetchRequestPATCH = () => {
 
-	const options = {
-    method: 'PATCH',
-		body: JSON.stringify({
-			name: 'Zbyszek',
-			age: 38,
-		}),
-	};
+// 	const options = {
+//     method: 'PATCH',
+// 		body: JSON.stringify({
+// 			name: 'Zbyszek',
+// 			age: 38,
+// 		}),
+// 	};
 
-	fetch('http://jsonplaceholder.typicode.com/posts/77', options)
-		.then((response) => {
-			console.log(response.status);
-			return response.json();
-		})
-		.then((data) => console.log(data))
-		.catch((err) => console.error());
-};
+// 	fetch('http://jsonplaceholder.typicode.com/posts/77', options)
+// 		.then((response) => {
+// 			console.log(response.status);
+// 			return response.json();
+// 		})
+// 		.then((data) => console.log(data))
+// 		.catch((err) => console.error());
+// };
 
-fetchRequestPATCH();
+// fetchRequestPATCH();
 
-//-------------------------------
+// //-------------------------------
 
-const asyncFetchRequestPATCH = async () => {
+// const asyncFetchRequestPATCH = async () => {
 	
-		const options = {
-			method: 'PATCH',
-			body: JSON.stringify({
+// 		const options = {
+// 			method: 'PATCH',
+// 			body: JSON.stringify({
         
-				name: 'Johny',
-				age: 13,
-			}),
-		};
+// 				name: 'Johny',
+// 				age: 13,
+// 			}),
+// 		};
 
-  try {
-		const response = await fetch(
-			'http://jsonplaceholder.typicode.com/posts/99',
-			options
-		);
+//   try {
+// 		const response = await fetch(
+// 			'http://jsonplaceholder.typicode.com/posts/99',
+// 			options
+// 		);
 
-		console.log(response);
-		console.log(response.status);
-		const data = await response.json();
-		console.log(data);
-	} catch (err) {
-		console.error('Something went wrong!!!!');
-	}
+// 		console.log(response);
+// 		console.log(response.status);
+// 		const data = await response.json();
+// 		console.log(data);
+// 	} catch (err) {
+// 		console.error('Something went wrong!!!!');
+// 	}
+// };
+// asyncFetchRequestPATCH();
+
+//----------------------------
+//Metoda DELETE
+//
+
+
+const XMLRequestDELETE = () => {
+  const body = JSON.stringify ({
+    name: 'Zbyszek'
+  })
+
+  const request = new XMLHttpRequest ();
+  request.open('DELETE', 'https://jsonplaceholder.typicode.com/todos/13');
+  request.send();
+  request.onload = function () {
+    console.log(request.status);
+    console.log(request.responseText);
+  };
+
+  request.onerror = function () {
+    console.error('Something went wrong!!!!');
+     	};
+     };
+    
+    XMLRequestDELETE();
+
+//---------------------------------------------
+
+const fetchRequestDELETE = () => {
+
+  const options = {
+    method: 'DELETE',
+    body: JSON.stringify({
+
+    }),
+  };
+
+  fetch('http://jsonplaceholder.typicode.com/posts/77', options)
+  .then((response) => {
+    console.log(response.status);
+    return response.json();
+  })
+  .then((data) => console.log(data))
+  .catch((err) => console.error('Something went wrong!!!!'))
+
 };
-asyncFetchRequestPATCH();
+
+fetchRequestDELETE();
+
+//------------------------------------
 
 
-  
+const asyncFetchRequestDELETE = async () => {
+
+  const options = {
+    method: 'DELETE',
+    body: JSON.stringify({
+
+    }),
+  };
+    try {
+      const response = await fetch(
+      			'http://jsonplaceholder.typicode.com/posts/',
+      			options
+       		);
+
+          console.log(response);
+          console.log(response.status);
+
+          const data = await response.json();
+          console.log(data);
+
+    } catch(err) {
+  console.error('Something went wrong!!!!')
+}
+
+};
+
+  asyncFetchRequestDELETE();
