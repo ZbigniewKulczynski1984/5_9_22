@@ -178,85 +178,172 @@
 // c) Fetch API + async/await
 
 //-------------------------------------------------
-const XMLRequestPUT = () => {
+// const XMLRequestPUT = () => {
 
-    const body = JSON.stringify({
-        name: 'Zbyszek',
-        age: 38,
-    })
+//     const body = JSON.stringify({
+//         name: 'Zbyszek',
+//         age: 38,
+//     })
 
-    const request = new XMLHttpRequest();
-    request.open('PUT', 'https://jsonplaceholder.typicode.com/todos/13')
-    request.send()
-    request.onload = function () { 
-        console.log(request.status);
-        console.log(request.responseText);
+//     const request = new XMLHttpRequest();
+//     request.open('PUT', 'https://jsonplaceholder.typicode.com/todos/13')
+//     request.send()
+//     request.onload = function () { 
+//         console.log(request.status);
+//         console.log(request.responseText);
      
-    };
-    request.onerror = function() {
-        console.error('Something went wrong!!!!');
-    };
-};
+//     };
+//     request.onerror = function() {
+//         console.error('Something went wrong!!!!');
+//     };
+// };
 
-XMLRequestPUT();
+// XMLRequestPUT();
 
 
 
 
 //-----------------------------------------------------------
 
-const fetchRequestPUT = () => {
-    const options = {
-      method: "PUT",
-      body: JSON.stringify({
-        name: "Zbyszke",
-        age: 20,
-      }),
-    };
+// const fetchRequestPUT = () => {
+//     const options = {
+//       method: "PUT",
+//       body: JSON.stringify({
+//         name: "Zbyszek",
+//         age: 20,
+//       }),
+//     };
   
-    fetch(
-        "http://jsonplaceholder.typicode.com/posts/77",
-        options
-      )
-      .then((response) => {
-        console.log(response.status);
-        return response.json();
-      })
-      .then((data) => console.log(data))
-      .catch((err) => console.error(err));
-  };
-  fetchRequestPUT();
+//     fetch(
+//         "http://jsonplaceholder.typicode.com/posts/77",
+//         options
+//       )
+//       .then((response) => {
+//         console.log(response.status);
+//         return response.json();
+//       })
+//       .then((data) => console.log(data))
+//       .catch((err) => console.error(err));
+//   };
+//   fetchRequestPUT();
 
 
 //------------------------------------------------------------------
 
 
 
-  const asyncFetchRequestPUT = async () => {
-    try {
-      const options = {
-        method: "PUT",
-        body: JSON.stringify({
-          name: "Johny",
-          age: 13,
-        }),
-      };
+  // const asyncFetchRequestPUT = async () => {
+  //   try {
+  //     const options = {
+  //       method: "PUT",
+  //       body: JSON.stringify({
+  //         name: "Johny",
+  //         age: 13,
+  //       }),
+  //     };
   
 
-      const response = await fetch(
-        "http://jsonplaceholder.typicode.com/posts/99",
-        options
-      );
+  //     const response = await fetch(
+  //       "http://jsonplaceholder.typicode.com/posts/99",
+  //       options
+  //     );
+  //     console.log(response);
+  //     console.log(response.status);
+  //     const data = await response.json();
+  //     console.log(data);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
+  // asyncFetchRequestPUT();
+
+  //----------------------------------------------------------------------
+
+
+  //metoda PATCH aktualizuje pojedyncze częsci danych w bazie w tzw miękki sposób, gdy nie ma pozycji to ją doda
+  //request tak samo jak POST i PUT przyjmuje body
+  //mutacja obiektu gdy ją co chwilę edytujemy
+
+  // const person = {
+  //   name: 'Zbyszek',
+  //   age: 38,
+  //   married: true
+  // }
+
+  // person.age = 39
+
+  const XMLRequestPATCH = () => {
+    const body = JSON.stringify({
+    name: 'Zbyszek',
+    age:38,
+    )}
+    
+    const request = newXMLHttpRequest();
+    request.open('PATCH', 'https://jsonplaceholder.typicode.com/todos/13')
+    request.send()
+    request.onload = function() {
+      console.log(request.status);
+      console.log(request.responseText);
+      
+      };
+      
+      request.onerror = function() {
+        console.error('Something went wrong!!!!');
+      };
+  };
+  
+  XMLRequestPUT();
+  
+  //----------------------------------------------------
+  
+  const fetchRequestPATCH = () => {
+    const options = {
+    body: JSON.stringify({
+    name: 'Zbyszek',
+    age:38,
+    }),
+    };
+    
+    fetch("http://jsonplaceholder.typicode.com/posts/77",
+          options
+        )
+      .then((response) => {
+      console.log(response.status);
+      return response.json();
+      })
+      .then((data) => console.log(data))
+      .catch((err) => console.error(err));
+      
+      };
+      
+      fetchRequestPATCH();
+      
+      //-------------------------------
+      
+     const asyncFetchRequestPATCH = async () => {
+     try {
+     cosnt options = {
+     method: 'PATCH',
+     body: JSON.strigify({
+     name: 'Johny',
+     age: 13,
+     })
+     };
+     
+     const response = await fetch (
+      "http://jsonplaceholder.typicode.com/posts/99",
+          options
+        );
+      
       console.log(response);
       console.log(response.status);
-      const data = await response.json();
-      console.log(data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-  asyncFetchRequestPUT();
-
+        const data = await response.json();
+        console.log(data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    asyncFetchRequestPUT();
 
 
 
